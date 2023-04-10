@@ -6,7 +6,10 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <a href='https://github.com/oguzhanmolu' target='_blank'>
-        <Icon className='fa-brands fa-github'></Icon>
+        <Icon
+          style={{ color: 'rgb(40,40,40) ' }}
+          className='fa-brands fa-github fa-bounce'
+        ></Icon>
       </a>
     </FooterWrapper>
   );
@@ -16,7 +19,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 5px;
+  padding: 10px;
 `;
 
 export default Footer;

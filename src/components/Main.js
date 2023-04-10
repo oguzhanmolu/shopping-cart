@@ -7,10 +7,11 @@ const Main = () => {
   // Fetch API
   const fetchData = async () => {
     const endpoint = 'https://api.pokemontcg.io/v2/cards';
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     const response = await fetch(endpoint, {
       headers: {
-        'x-api-key': process.env.REACT_APP_API_KEY,
+        'x-api-key': apiKey,
       },
     });
 
@@ -23,7 +24,7 @@ const Main = () => {
     pokemons.data.forEach((pokemon) => console.log(pokemon));
   };
   useEffect(() => {
-    // fetchData();
+    fetchData();
   }, []);
 
   return <MainWrapper></MainWrapper>;

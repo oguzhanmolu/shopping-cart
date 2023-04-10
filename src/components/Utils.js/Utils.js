@@ -9,6 +9,7 @@ const LiItem = ({ fontSize, color, text }) => {
         fontFamily: 'Pokemon Solid',
         cursor: 'pointer',
         transition: ' all ease-in-out 0.5s',
+        marginTop: '10px',
       }}
     >
       {text}
