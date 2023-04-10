@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const PokemonText = ({ fontSize, color, text }) => {
+const LiItem = ({ fontSize, color, text }) => {
   return (
-    <Text
+    <Li
       style={{
         fontSize: fontSize,
         color: color,
@@ -12,13 +12,13 @@ const PokemonText = ({ fontSize, color, text }) => {
       }}
     >
       {text}
-    </Text>
+    </Li>
   );
 };
 
-export { PokemonText };
+export { LiItem };
 
-const Text = styled.p`
+const Li = styled.li`
   &:hover {
     scale: 1.25;
   }
