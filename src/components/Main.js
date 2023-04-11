@@ -24,7 +24,7 @@ const Main = () => {
     pokemons.data.forEach((pokemon) => console.log(pokemon));
   };
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   return <MainWrapper></MainWrapper>;

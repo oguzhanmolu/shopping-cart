@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import headerPokeballImg from '../assets/header-pokeball-image2.png';
+import headerPokeballImg from '../assets/header-pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
 import { LiItem } from './Utils.js/Utils';
-import { Icon } from './Utils.js/Icon';
+import Icon from './Utils.js/Icon';
 import routes from '../constants/routes.json';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <h1></h1>
+      {/* <Link to={routes.HOME} /> */}
       <LogoWrapper>
         <Logo src={headerLogo} />
         <LogoText>PoKéShoP</LogoText>
@@ -18,14 +19,10 @@ const Header = () => {
 
       <nav>
         <Ul>
-          <LiItem fontSize='1.75rem' color='rgb(228,0,8)' text='Home' />
-          <LiItem fontSize='1.75rem' color='rgb(42,117,187)' text='Shop' />
-          <LiItem
-            fontSize='1.75rem'
-            color='rgb(255, 203, 5) '
-            text='Contact Us'
-          />
-          <Icon className='fa-solid fa-cart-shopping' />
+          <LiItem fontSize='1.75rem' color='white' text='Home' />
+          <LiItem fontSize='1.75rem' color='white' text='Shop' />
+          <LiItem fontSize='1.75rem' color='white' text='Contact Us' />
+          <Icon className='fa-solid fa-bag-shopping' />
         </Ul>
       </nav>
     </HeaderWrapper>
@@ -37,37 +34,34 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  background-color: rgb(40, 40, 40);
+  background-color: rgb(228, 0, 8);
   border-bottom: 6.5px solid black;
 `;
 
 const LogoWrapper = styled.section`
   display: flex;
-  width: 600px;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
   margin-left: 50px;
-  transition: all ease-in-out 0.5s;
   cursor: pointer;
-
-  &:hover {
-    scale: 1.1;
-  }
 `;
 
 const Logo = styled.img`
-  height: 75px;
+  height: 60px;
 `;
 
 const LogoText = styled.p`
-  margin-top: 10px;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: white;
   font-family: 'Pokemon Solid';
 `;
 
 const PokeballImg = styled.img`
-  margin-top: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 101px;
   height: 75px;
   transition: all ease-in-out 0.5s;
   cursor: pointer;
@@ -78,7 +72,7 @@ const PokeballImg = styled.img`
 
 const Ul = styled.ul`
   display: inline-flex;
-  width: 600px;
+  width: 450px;
   justify-content: space-between;
   align-items: center;
   gap: 25px;
@@ -87,3 +81,6 @@ const Ul = styled.ul`
 `;
 
 export default Header;
+
+// rgb(42,117,187)
+// rgb(255, 203, 5)

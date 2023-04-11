@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Icon } from './Utils.js/Icon';
+import Icon from './Utils.js/Icon';
 
 // Simple footer with github icon and link to my github page
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
     <FooterWrapper>
       <a href='https://github.com/oguzhanmolu' target='_blank'>
         <Icon
-          style={{ color: 'rgb(40,40,40) ' }}
+          color='rgb(40,40,40)'
           className='fa-brands fa-github fa-bounce'
         ></Icon>
       </a>
