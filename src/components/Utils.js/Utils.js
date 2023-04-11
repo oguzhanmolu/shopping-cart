@@ -19,12 +19,18 @@ const NavLink = ({ fontSize, color, text, to }) => {
   );
 };
 
-const Img = ({ height, width, src, alt, animation }) => {
+const Img = ({ height, width, src, alt, position, margin }) => {
   return (
     <img
       src={src}
       alt={alt}
-      style={{ height: height, width: width, animation: animation }}
+      style={{
+        position: position,
+        margin: margin,
+        height: height,
+        width: width,
+        cursor: 'pointer',
+      }}
     />
   );
 };

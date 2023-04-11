@@ -3,7 +3,7 @@ import Icon from './Utils.js/Icon';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styled from 'styled-components';
-import headerPokeballImg from '../assets/header-pokeball-image.png';
+import pokeballImg from '../assets/pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
         ></PokemonFontText>
       </LogoWrapper>
 
-      <PokeballImg src={headerPokeballImg} alt='pokeball image' />
+      <PokeballImg src={pokeballImg} alt='pokeball image' />
 
       <Navbar>
         <NavLink
