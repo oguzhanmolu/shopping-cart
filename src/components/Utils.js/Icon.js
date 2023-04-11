@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
-const Icon = ({ color, className }) => {
-  return <IconItem style={{ color: color }} className={className} />;
+const Icon = ({ color, className, fontSize }) => {
+  return (
+    <IconItem
+      style={{ color: color, fontSize: fontSize }}
+      className={className}
+    />
+  );
 };
 
 const IconItem = styled.i`
-  font-size: 2.5rem;
   color: white;
   transition: all ease-in-out 0.5s;
-  animation-duration: 10s;
+  animation-duration: 5s;
   &:hover {
     scale: 1.25;
   }

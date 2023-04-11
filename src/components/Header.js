@@ -1,30 +1,52 @@
+import { NavLink, Img, PokemonFontText } from './Utils.js/Utils';
+import Icon from './Utils.js/Icon';
+import { Link } from 'react-router-dom';
+import routes from '../constants/routes.json';
 import styled from 'styled-components';
 import headerPokeballImg from '../assets/header-pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
-import { LiItem } from './Utils.js/Utils';
-import Icon from './Utils.js/Icon';
-import routes from '../constants/routes.json';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      {/* <Link to={routes.HOME} /> */}
       <LogoWrapper>
-        <Logo src={headerLogo} />
-        <LogoText>PoKéShoP</LogoText>
+        <Link to={routes.HOME}>
+          <Img src={headerLogo} alt='pokemon-logo' height='60px' />
+        </Link>
+
+        <PokemonFontText
+          fontSize='1.5rem'
+          color='white'
+          text='PoKéShoP'
+        ></PokemonFontText>
       </LogoWrapper>
 
-      <PokeballImg src={headerPokeballImg} />
+      <PokeballImg src={headerPokeballImg} alt='pokeball image' />
 
-      <nav>
-        <Ul>
-          <LiItem fontSize='1.75rem' color='white' text='Home' />
-          <LiItem fontSize='1.75rem' color='white' text='Shop' />
-          <LiItem fontSize='1.75rem' color='white' text='Contact Us' />
-          <Icon className='fa-solid fa-bag-shopping' />
-        </Ul>
-      </nav>
+      <Navbar>
+        <NavLink
+          to={routes.HOME}
+          fontSize='1.75rem'
+          color='white'
+          text='Home'
+        />
+
+        <NavLink
+          to={routes.SHOP}
+          fontSize='1.75rem'
+          color='white'
+          text='Shop'
+        />
+
+        <NavLink
+          to={routes.CONTACT}
+          fontSize='1.75rem'
+          color='white'
+          text='Contact Us'
+        />
+        {/* Note: Add cart link below  */}
+        <Icon fontSize='2.5rem' className='fa-solid fa-bag-shopping' />
+      </Navbar>
     </HeaderWrapper>
   );
 };
@@ -46,16 +68,6 @@ const LogoWrapper = styled.section`
   cursor: pointer;
 `;
 
-const Logo = styled.img`
-  height: 60px;
-`;
-
-const LogoText = styled.p`
-  font-size: 1.5rem;
-  color: white;
-  font-family: 'Pokemon Solid';
-`;
-
 const PokeballImg = styled.img`
   position: absolute;
   left: 0;
@@ -70,7 +82,7 @@ const PokeballImg = styled.img`
   }
 `;
 
-const Ul = styled.ul`
+const Navbar = styled.ul`
   display: inline-flex;
   width: 450px;
   justify-content: space-between;

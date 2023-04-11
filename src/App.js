@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,9 +7,11 @@ import styled from 'styled-components';
 function App() {
   return (
     <ContentWrapper>
-      <Header />
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </ContentWrapper>
   );
 }
@@ -18,6 +21,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  background-color: rgba(42, 117, 187, 1);
 `;
 
 export default App;

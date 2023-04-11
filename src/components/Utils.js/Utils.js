@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const LiItem = ({ fontSize, color, text }) => {
+const NavLink = ({ fontSize, color, text, to }) => {
   return (
-    <Li
+    <LinkItem
+      to={to}
       style={{
         fontSize: fontSize,
         color: color,
@@ -13,14 +15,35 @@ const LiItem = ({ fontSize, color, text }) => {
       }}
     >
       {text}
-    </Li>
+    </LinkItem>
   );
 };
 
-export { LiItem };
+const Img = ({ height, width, src, alt, animation }) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{ height: height, width: width, animation: animation }}
+    />
+  );
+};
 
-const Li = styled.li`
+const PokemonFontText = ({ fontSize, color, text }) => {
+  return (
+    <p
+      style={{ fontSize: fontSize, color: color, fontFamily: 'Pokemon Solid' }}
+    >
+      {text}
+    </p>
+  );
+};
+
+const LinkItem = styled(Link)`
+  text-decoration: none;
   &:hover {
     scale: 1.25;
   }
 `;
+
+export { NavLink, Img, PokemonFontText };
