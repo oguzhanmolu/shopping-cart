@@ -54,13 +54,16 @@ const ContactWrapper = styled.section`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: rgba(40, 40, 40, 0.25);
 `;
 
 const IconWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
-  margin-top: 100px;
+  margin-top: 50px;
   & > * {
     padding: 10px;
     border-radius: 10px;

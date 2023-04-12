@@ -13,6 +13,7 @@ const IconItem = styled.i`
   color: white;
   transition: all ease-in-out 0.5s;
   animation-duration: 5s;
+  cursor: pointer;
   &:hover {
     scale: 1.25;
   }

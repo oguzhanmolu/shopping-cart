@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import pokeballImg from '../assets/pokeball-image3.png';
 import Icon from './Utils.js/Icon';
-import { Img } from './Utils.js/Image';
 
 // Simple footer with github icon and link to my github page
 const Footer = () => {

@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom';
+import routes from '../constants/routes.json';
+import styled from 'styled-components';
+// Images
+import pokeballImg from '../assets/pokeball-image.png';
+import headerLogo from '../assets/header-logo.png';
+// Utils
 import { NavLink } from './Utils.js/Navlink';
 import { Img } from './Utils.js/Image';
 import { Text } from './Utils.js/Text';
 import Icon from './Utils.js/Icon';
-import { Link } from 'react-router-dom';
-import routes from '../constants/routes.json';
-import styled from 'styled-components';
-import pokeballImg from '../assets/pokeball-image.png';
-import headerLogo from '../assets/header-logo.png';
 
 const Header = () => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
         <Link to={routes.HOME}>
-          <Img src={headerLogo} alt='pokemon-logo' height='60px' />
+          <Img src={headerLogo} alt='pokemon-logo' height='50px' />
         </Link>
 
         <Text

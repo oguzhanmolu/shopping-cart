@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-const Button = ({ color, textColor, fontSize, padding, text, fontFamily }) => {
+const Button = ({
+  color,
+  textColor,
+  fontSize,
+  padding,
+  text,
+  fontFamily,
+  fontWeight,
+}) => {
   return (
     <ButtonItem
       style={{
@@ -12,6 +20,7 @@ const Button = ({ color, textColor, fontSize, padding, text, fontFamily }) => {
         fontFamily: fontFamily,
         cursor: 'pointer',
         transition: 'all ease-in-out .5s',
+        fontWeight: fontWeight,
       }}
     >
       {text}

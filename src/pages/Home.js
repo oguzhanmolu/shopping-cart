@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
-import styled, { keyframes } from 'styled-components';
-import Button from '../components/Utils.js/Button';
+import styled from 'styled-components';
+// Images
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
+// Utils
 import { Text } from '../components/Utils.js/Text';
+import Button from '../components/Utils.js/Button';
 import {
   appear,
   slideLeft,
@@ -15,17 +17,33 @@ import {
 const Home = () => {
   return (
     <HomeWrapper>
-      <Text
-        fontSize='3.5rem'
-        color='white'
-        text={`Europe's biggest Pokemon card seller`}
-        fontFamily='Pokemon Solid'
-      />
+      <TextWrapper>
+        <Text
+          fontSize='3.5rem'
+          color='yellow'
+          text={`PoKéShoP™`}
+          fontFamily='Pokemon Solid'
+          fontWeight='bold'
+        />
+        <Text
+          fontSize='3rem'
+          color='white'
+          text={`Europe's biggest Pokemon card seller`}
+          fontFamily='Pokemon Solid'
+        />
+      </TextWrapper>
 
       <div>
-        <HomeImg src={mainPokemonImg} height='300px' />
-        <HomeImg2 src={mainPokemonImg2} height='300px' />
+        <HomeImg src={mainPokemonImg} alt='Pokemon cards packages' />
+        <HomeImg2 src={mainPokemonImg2} alt='Pokemon cards' />
       </div>
+
+      <Text
+        fontSize='2rem'
+        color='white'
+        text={`Offering 250+ Pokemon cards with amazing deals!`}
+        fontFamily='Pokemon Solid'
+      />
 
       <Link to={routes.SHOP}>
         <Button
@@ -33,7 +51,8 @@ const Home = () => {
           textColor='white'
           fontSize='1.5rem'
           fontFamily='Roboto'
-          text='Shop Now!'
+          fontWeight='bold'
+          text='Check Now!'
           padding='15px'
         ></Button>
       </Link>
@@ -42,16 +61,23 @@ const Home = () => {
 };
 
 const HomeWrapper = styled.section`
+  height: 75vh;
+  width: 90vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 125px;
   animation: ${appear} 2.5s;
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 10px;
+`;
+
+const TextWrapper = styled.div`
+  text-align: center;
 `;
 
 const HomeImg = styled.img`
-  height: 300px;
+  height: 275px;
   animation: ${slideRight} 1.5s;
 `;
 
