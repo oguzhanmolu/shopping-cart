@@ -9,21 +9,21 @@ const appear = keyframes`
 `;
 
 const slideRight = keyframes`
-0%{opacity:0;
+0%{
   transform: translate(-100%);
 }
 
-100%{opacity:1;
+100%{
   transform: translate(0%);
 }
 `;
 
 const slideLeft = keyframes`
-0%{opacity:0;
+0%{
   transform: translate(100%);
 }
 
-100%{opacity:1;
+100%{
   transform: translate(0%);
 }
 `;

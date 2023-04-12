@@ -1,19 +1,41 @@
+import { Link } from 'react-router-dom';
+import routes from '../constants/routes.json';
 import styled, { keyframes } from 'styled-components';
+import Button from '../components/Utils.js/Button';
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
-import { Img } from '../components/Utils.js/Utils';
+import { PokemonFontText, RegularText } from '../components/Utils.js/Text';
 import {
   appear,
   slideLeft,
   slideRight,
 } from '../components/Utils.js/Animations';
 
+// Home page
 const Home = () => {
   return (
     <HomeWrapper>
-      <MainText>Test text here gonna replace this abomination soon</MainText>
-      <HomeImg src={mainPokemonImg} height='300px' />
-      <HomeImg2 src={mainPokemonImg2} height='300px' />
+      <PokemonFontText
+        fontSize='3.5rem'
+        color='white'
+        text={`Europe's biggest Pokemon card seller`}
+      />
+
+      <div>
+        <HomeImg src={mainPokemonImg} height='300px' />
+        <HomeImg2 src={mainPokemonImg2} height='300px' />
+      </div>
+
+      <Link to={routes.SHOP}>
+        <Button
+          color='rgb(228,0,8)'
+          textColor='white'
+          fontSize='1.5rem'
+          fontFamily='Roboto'
+          text='Shop Now!'
+          padding='15px'
+        ></Button>
+      </Link>
     </HomeWrapper>
   );
 };
@@ -23,12 +45,8 @@ const HomeWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  animation: ${appear} 1s;
-`;
-
-const MainText = styled.p`
-  font-size: 4rem;
+  gap: 100px;
+  animation: ${appear} 2.5s;
 `;
 
 const HomeImg = styled.img`

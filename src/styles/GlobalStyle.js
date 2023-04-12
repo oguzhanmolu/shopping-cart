@@ -6,9 +6,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     word-wrap: break-word;
-    i{
-        cursor:pointer;
-    }
+    border-style: none;
+
 }`;
 
 export default GlobalStyle;

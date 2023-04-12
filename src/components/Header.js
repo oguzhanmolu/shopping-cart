@@ -1,4 +1,6 @@
-import { NavLink, Img, PokemonFontText } from './Utils.js/Utils';
+import { NavLink } from './Utils.js/Navlink';
+import { Img } from './Utils.js/Image';
+import { PokemonFontText } from './Utils.js/Text';
 import Icon from './Utils.js/Icon';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
@@ -42,7 +44,7 @@ const Header = () => {
           to={routes.CONTACT}
           fontSize='1.75rem'
           color='white'
-          text='Contact Us'
+          text='Contact'
         />
         {/* Note: Add cart link below  */}
         <Icon fontSize='2.5rem' className='fa-solid fa-bag-shopping' />

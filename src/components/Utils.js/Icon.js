@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const Icon = ({ color, className, fontSize }) => {
+const Icon = ({ color, className, fontSize, margin }) => {
   return (
     <IconItem
-      style={{ color: color, fontSize: fontSize }}
+      style={{ color: color, fontSize: fontSize, margin: margin }}
       className={className}
     />
   );

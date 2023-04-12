@@ -21,7 +21,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  background-color: rgba(42, 117, 187, 1);
+  background-color: rgb(42, 117, 187);
 `;
 
 export default App;
