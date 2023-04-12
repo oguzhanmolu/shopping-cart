@@ -1,6 +1,6 @@
 import { NavLink } from './Utils.js/Navlink';
 import { Img } from './Utils.js/Image';
-import { PokemonFontText } from './Utils.js/Text';
+import { Text } from './Utils.js/Text';
 import Icon from './Utils.js/Icon';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
@@ -16,11 +16,12 @@ const Header = () => {
           <Img src={headerLogo} alt='pokemon-logo' height='60px' />
         </Link>
 
-        <PokemonFontText
+        <Text
           fontSize='1.5rem'
           color='white'
+          fontFamily='Pokemon Solid'
           text='PoKéShoP'
-        ></PokemonFontText>
+        ></Text>
       </LogoWrapper>
 
       <PokeballImg src={pokeballImg} alt='pokeball image' />

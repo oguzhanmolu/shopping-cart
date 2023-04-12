@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import Button from '../components/Utils.js/Button';
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
-import { PokemonFontText, RegularText } from '../components/Utils.js/Text';
+import { Text } from '../components/Utils.js/Text';
 import {
   appear,
   slideLeft,
@@ -15,10 +15,11 @@ import {
 const Home = () => {
   return (
     <HomeWrapper>
-      <PokemonFontText
+      <Text
         fontSize='3.5rem'
         color='white'
         text={`Europe's biggest Pokemon card seller`}
+        fontFamily='Pokemon Solid'
       />
 
       <div>
@@ -45,7 +46,7 @@ const HomeWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 125px;
   animation: ${appear} 2.5s;
 `;
 

@@ -1,19 +1,9 @@
-const PokemonFontText = ({ fontSize, color, text }) => {
+const Text = ({ fontSize, color, text, fontFamily }) => {
   return (
-    <p
-      style={{ fontSize: fontSize, color: color, fontFamily: 'Pokemon Solid' }}
-    >
+    <p style={{ fontSize: fontSize, color: color, fontFamily: fontFamily }}>
       {text}
     </p>
   );
 };
 
-const RegularText = ({ fontSize, color, text }) => {
-  return (
-    <p style={{ fontSize: fontSize, color: color, fontFamily: 'Roboto' }}>
-      {text}
-    </p>
-  );
-};
-
-export { PokemonFontText, RegularText };
+export { Text };
