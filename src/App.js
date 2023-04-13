@@ -3,6 +3,7 @@ import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import styled from 'styled-components';
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Main />
         <Footer />
       </BrowserRouter>
+      <Cart />
     </ContentWrapper>
   );
 }
