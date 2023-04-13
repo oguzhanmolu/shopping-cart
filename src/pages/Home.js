@@ -30,6 +30,7 @@ const Home = () => {
           color='white'
           text={`Europe's biggest Pokemon card seller`}
           fontFamily='Pokemon Solid'
+          margin='25px 0 0 0'
         />
       </TextWrapper>
 

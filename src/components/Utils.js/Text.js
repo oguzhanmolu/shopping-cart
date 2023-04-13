@@ -1,4 +1,4 @@
-const Text = ({ fontSize, color, text, fontFamily, fontWeight }) => {
+const Text = ({ fontSize, color, text, fontFamily, fontWeight, margin }) => {
   return (
     <p
       style={{
@@ -6,6 +6,7 @@ const Text = ({ fontSize, color, text, fontFamily, fontWeight }) => {
         color: color,
         fontFamily: fontFamily,
         fontWeight: fontWeight,
+        margin: margin,
       }}
     >
       {text}
