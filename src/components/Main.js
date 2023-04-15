@@ -10,8 +10,8 @@ import routes from '../constants/routes.json';
 const Main = () => {
   const [pokemons, setPokemons] = useState([]);
 
-  // Fetch is really slow sometimes,
-  // That's why using constants/cards.json instead
+  // Fetch is really slow and unreliable sometimes,
+  // That's why replaced this fetch data with constants/cards.json instead
   /* useEffect(() => {
     const fetchData = async () => {
       const endpoint = 'https://api.pokemontcg.io/v2/cards';

@@ -9,6 +9,7 @@ import { NavLink } from './Utils.js/Navlink';
 import { Img } from './Utils.js/Image';
 import { Text } from './Utils.js/Text';
 import Icon from './Utils.js/Icon';
+import Button from './Utils.js/Button';
 
 const Header = () => {
   return (
@@ -35,22 +36,35 @@ const Header = () => {
           color='white'
           text='Home'
         />
-
         <NavLink
           to={routes.SHOP}
           fontSize='1.75rem'
           color='white'
           text='Shop'
         />
-
         <NavLink
           to={routes.CONTACT}
           fontSize='1.75rem'
           color='white'
           text='Contact'
         />
-        {/* Note: Add cart link below  */}
-        <Icon fontSize='2.5rem' className='fa-solid fa-bag-shopping' />
+
+        <CartWrapper>
+          <Icon
+            color='white'
+            fontSize='2rem'
+            className='fa-solid fa-bag-shopping'
+          />
+
+          <Text
+            fontSize='1.15rem'
+            color='white'
+            fontFamily='Roboto'
+            fontWeight='bold'
+            text='7'
+            margin='30px 0 0 2.5px'
+          ></Text>
+        </CartWrapper>
       </Navbar>
     </HeaderWrapper>
   );
@@ -67,12 +81,27 @@ const HeaderWrapper = styled.header`
   border-bottom: 6.5px solid black;
 `;
 
+const Navbar = styled.ul`
+  display: inline-flex;
+  width: 450px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-right: 50px;
+  list-style-type: none;
+`;
+
 const LogoWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 50px;
   cursor: pointer;
+`;
+
+const CartWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const PokeballImg = styled.img`
@@ -89,17 +118,4 @@ const PokeballImg = styled.img`
   }
 `;
 
-const Navbar = styled.ul`
-  display: inline-flex;
-  width: 450px;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  margin-right: 50px;
-  list-style-type: none;
-`;
-
 export default Header;
-
-// rgb(42,117,187)
-// rgb(255, 203, 5)

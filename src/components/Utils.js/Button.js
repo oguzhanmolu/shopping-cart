@@ -8,6 +8,7 @@ const Button = ({
   text,
   fontFamily,
   fontWeight,
+  children,
 }) => {
   return (
     <ButtonItem

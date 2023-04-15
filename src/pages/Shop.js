@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import cards from '../constants/cards.json';
 // Utils
-import Icon from '../components/Utils.js/Icon';
 import { Img } from '../components/Utils.js/Image';
 import { Text } from '../components/Utils.js/Text';
+import Button from '../components/Utils.js/Button';
 
 const Shop = () => {
   // Get only necessary values from long json data
@@ -46,6 +46,16 @@ const Shop = () => {
             margin='10px 0 0 0'
           />
         </div>
+
+        <Button
+          backgroundColor='rgb(228,0,8)'
+          textColor='white'
+          fontSize='1.25rem'
+          fontFamily='Roboto'
+          fontWeight='bold'
+          text='Add to Cart!'
+          padding='10px'
+        ></Button>
       </CardWrapper>
     );
   });
@@ -67,11 +77,11 @@ const ShopWrapper = styled.section`
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 25px;
   padding: 25px;
   background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 10px;
   text-align: center;
 `;
 
