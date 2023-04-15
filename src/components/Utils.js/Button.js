@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Button = ({
-  color,
+  backgroundColor,
   textColor,
   fontSize,
   padding,
@@ -12,15 +12,15 @@ const Button = ({
   return (
     <ButtonItem
       style={{
-        backgroundColor: color,
+        backgroundColor: backgroundColor,
         color: textColor,
         fontSize: fontSize,
         padding: padding,
-        borderRadius: '5px',
         fontFamily: fontFamily,
+        fontWeight: fontWeight,
+        borderRadius: '5px',
         cursor: 'pointer',
         transition: 'all ease-in-out .5s',
-        fontWeight: fontWeight,
       }}
     >
       {text}

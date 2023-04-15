@@ -10,8 +10,9 @@ import routes from '../constants/routes.json';
 const Main = () => {
   const [pokemons, setPokemons] = useState([]);
 
-  // Fetch API data
-  useEffect(() => {
+  // Fetch is really slow sometimes,
+  // That's why using constants/cards.json instead
+  /* useEffect(() => {
     const fetchData = async () => {
       const endpoint = 'https://api.pokemontcg.io/v2/cards';
       const apiKey = process.env.REACT_APP_API_KEY;
@@ -26,15 +27,22 @@ const Main = () => {
       console.log('Successful fetch');
       setPokemons(data);
     };
-    // fetchData();
-  }, []);
+    fetchData();
+  }, []);*/
+
+  // Handle animation
+  const handleCartAnimation = () => {
+    const cart = document.getElementById('cart');
+
+    return console.log(cart.style.display);
+  };
 
   return (
     <MainWrapper>
       <Routes>
         <Route index element={<Home />} />
         <Route path={routes.HOME} element={<Home />} />
-        <Route path={routes.SHOP} element={<Shop />} />
+        <Route path={routes.SHOP} element={<Shop pokemons={pokemons.data} />} />
         <Route path={routes.CONTACT} element={<Contact />} />
       </Routes>
     </MainWrapper>

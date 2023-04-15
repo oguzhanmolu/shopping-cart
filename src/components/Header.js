@@ -58,6 +58,8 @@ const Header = () => {
 // Styled components
 const HeaderWrapper = styled.header`
   display: flex;
+  top: 0;
+  position: sticky;
   justify-content: space-between;
   align-items: center;
   height: 100px;

@@ -22,7 +22,6 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
   background-color: rgb(42, 117, 187);
 `;
 

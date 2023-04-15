@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Icon from '../components/Utils.js/Icon';
 import { Text } from '../components/Utils.js/Text';
-import { appear } from '../components/Utils.js/Animations';
+import { appear } from '../styles/Animations';
 
 const Contact = () => {
   // Icon Item

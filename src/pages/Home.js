@@ -7,11 +7,7 @@ import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
 // Utils
 import { Text } from '../components/Utils.js/Text';
 import Button from '../components/Utils.js/Button';
-import {
-  appear,
-  slideLeft,
-  slideRight,
-} from '../components/Utils.js/Animations';
+import { appear, slideLeft, slideRight } from '../styles/Animations';
 
 // Home page
 const Home = () => {
@@ -48,7 +44,7 @@ const Home = () => {
 
       <Link to={routes.SHOP}>
         <Button
-          color='rgb(228,0,8)'
+          backgroundColor='rgb(228,0,8)'
           textColor='white'
           fontSize='1.5rem'
           fontFamily='Roboto'
