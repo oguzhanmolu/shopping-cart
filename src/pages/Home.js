@@ -15,14 +15,14 @@ const Home = () => {
     <HomeWrapper>
       <TextWrapper>
         <Text
-          fontSize='3.5rem'
+          fontSize='3rem'
           color='yellow'
           text={`PoKéShoP™`}
           fontFamily='Pokemon Solid'
           fontWeight='bold'
         />
         <Text
-          fontSize='3rem'
+          fontSize='2.5rem'
           color='white'
           text={`Europe's biggest Pokemon card seller`}
           fontFamily='Pokemon Solid'
@@ -36,9 +36,9 @@ const Home = () => {
       </div>
 
       <Text
-        fontSize='2rem'
+        fontSize='1.75rem'
         color='white'
-        text={`Offering 250+ Pokemon cards with amazing deals!`}
+        text={`Offering best deals with free shipping!`}
         fontFamily='Pokemon Solid'
       />
 
@@ -46,7 +46,7 @@ const Home = () => {
         <Button
           backgroundColor='rgb(228,0,8)'
           textColor='white'
-          fontSize='1.5rem'
+          fontSize='1.25rem'
           fontFamily='Roboto'
           fontWeight='bold'
           text='Check Now!'
@@ -59,7 +59,7 @@ const Home = () => {
 
 const HomeWrapper = styled.section`
   height: 75vh;
-  width: 90vw;
+  width: 95vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

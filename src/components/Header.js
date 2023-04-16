@@ -57,11 +57,10 @@ const Header = () => {
           />
 
           <Text
-            fontSize='1.15rem'
             color='white'
             fontFamily='Roboto'
             fontWeight='bold'
-            text='7'
+            text='0'
             margin='30px 0 0 2.5px'
           ></Text>
         </CartWrapper>

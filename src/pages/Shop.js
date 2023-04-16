@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import cards from '../constants/cards.json';
 import CardItem from '../components/Shop/CardItem';
+import { appear } from '../styles/Animations';
 
 const Shop = () => {
   // Map and create an object with only necessary values from json data
@@ -32,6 +33,7 @@ const ShopWrapper = styled.section`
   grid-template-columns: repeat(5, 1fr);
   gap: 25px;
   margin: 50px;
+  animation: ${appear} 1s;
 `;
 
 export default Shop;
