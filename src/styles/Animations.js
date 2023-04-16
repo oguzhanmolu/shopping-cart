@@ -28,14 +28,4 @@ const slideLeft = keyframes`
 }
 `;
 
-const cartSlideRight = keyframes`
-0%{
-  transform: translateX(0%);
-}
-
-100%{
-  transform: translateX(100%);
-}
-`;
-
-export { appear, slideLeft, slideRight, cartSlideRight };
+export { appear, slideLeft, slideRight };

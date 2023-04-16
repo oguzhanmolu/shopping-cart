@@ -1,18 +1,22 @@
 import styled from 'styled-components';
+import { handleHideCart } from './CartToggle';
 
 const Cart = () => {
-  return <CartWrapper id='cart'>Test</CartWrapper>;
+  return (
+    <CartWrapper id='cart'>
+      <button onClick={handleHideCart}>Close</button>
+    </CartWrapper>
+  );
 };
 
 const CartWrapper = styled.div`
-  display: none;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 30vw;
-  left: 70%;
-  /* transform: translateX(-100%); */
+  left: 100%;
+  z-index: 2;
   background-color: white;
-  transition: all ease-in-out;
+  transition: all ease-in-out 1s;
 `;
 
 export default Cart;

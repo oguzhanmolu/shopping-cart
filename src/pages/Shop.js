@@ -16,14 +16,32 @@ const Shop = () => {
     });
   });
 
+  // Zoom in image on click
+  const handleZoomOnImage = (e) => {
+    e.target.style.scale = '1.6';
+    e.target.style.cursor = 'zoom-out';
+  };
+  // Zoom out image on mouseout
+  const handleZoomOutImage = (e) => {
+    e.target.style.scale = '1';
+    e.target.style.cursor = 'zoom-in';
+  };
+
   // Create cart items from mapped 'pokemonArr'
   const cardItems = pokemonArr.map((card) => {
-    return <CardItem key={card.id} pokemonData={card} />;
+    return (
+      <CardItem
+        key={card.id}
+        pokemonData={card}
+        onClickAction={handleZoomOnImage}
+        onMouseOutAction={handleZoomOutImage}
+      />
+    );
   });
 
   return (
     <>
-      <ShopWrapper>{cardItems}</ShopWrapper>;
+      <ShopWrapper>{cardItems}</ShopWrapper>
     </>
   );
 };
@@ -31,7 +49,7 @@ const Shop = () => {
 const ShopWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 25px;
+  gap: 20px;
   margin: 50px;
   animation: ${appear} 1s;
 `;

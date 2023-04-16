@@ -1,9 +1,14 @@
+import { hover } from '@testing-library/user-event/dist/hover';
 import styled from 'styled-components';
 
 const Icon = ({ color, className, fontSize, margin }) => {
   return (
     <IconItem
-      style={{ color: color, fontSize: fontSize, margin: margin }}
+      style={{
+        color: color,
+        fontSize: fontSize,
+        margin: margin,
+      }}
       className={className}
     />
   );

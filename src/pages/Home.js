@@ -4,9 +4,9 @@ import styled from 'styled-components';
 // Images
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
-// Utils
-import { Text } from '../components/Utils.js/Text';
-import Button from '../components/Utils.js/Button';
+// Reusable elements
+import { Text } from '../components/elements/Text';
+import Button from '../components/elements/Button';
 import { appear, slideLeft, slideRight } from '../styles/Animations';
 
 // Home page

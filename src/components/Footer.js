@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Icon from './Utils.js/Icon';
+import Icon from './elements/Icon';
 
 // Simple footer with github icon and link to my github page
 const Footer = () => {

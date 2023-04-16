@@ -9,9 +9,11 @@ const Button = ({
   fontFamily,
   fontWeight,
   children,
+  onClickAction,
 }) => {
   return (
     <ButtonItem
+      onClick={onClickAction}
       style={{
         backgroundColor: backgroundColor,
         color: textColor,
@@ -22,8 +24,10 @@ const Button = ({
         borderRadius: '5px',
         cursor: 'pointer',
         transition: 'all ease-in-out .5s',
+        textAlign: 'center',
       }}
     >
+      {children}
       {text}
     </ButtonItem>
   );

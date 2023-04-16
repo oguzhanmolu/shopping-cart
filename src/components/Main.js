@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Img } from './Utils.js/Image';
+import routes from '../constants/routes.json';
 import styled from 'styled-components';
 import Home from '../pages/Home';
 import Shop from '../pages/Shop';
 import Contact from '../pages/Contact';
-import routes from '../constants/routes.json';
 
 const Main = () => {
-  const [pokemons, setPokemons] = useState([]);
+  // const [pokemons, setPokemons] = useState([]);
 
-  // Fetch is really slow and unreliable sometimes,
-  // That's why replaced this fetch data with constants/cards.json instead
+  // .fetch is sometimes slow and unreliable,
+  // That's why replaced this with constants/cards.json instead
   /* useEffect(() => {
     const fetchData = async () => {
       const endpoint = 'https://api.pokemontcg.io/v2/cards';
@@ -30,19 +29,12 @@ const Main = () => {
     fetchData();
   }, []);*/
 
-  // Handle animation
-  const handleCartAnimation = () => {
-    const cart = document.getElementById('cart');
-
-    return console.log(cart.style.display);
-  };
-
   return (
-    <MainWrapper>
+    <MainWrapper id='main'>
       <Routes>
         <Route index element={<Home />} />
         <Route path={routes.HOME} element={<Home />} />
-        <Route path={routes.SHOP} element={<Shop pokemons={pokemons.data} />} />
+        <Route path={routes.SHOP} element={<Shop />} />
         <Route path={routes.CONTACT} element={<Contact />} />
       </Routes>
     </MainWrapper>

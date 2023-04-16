@@ -4,12 +4,13 @@ import styled from 'styled-components';
 // Images
 import pokeballImg from '../assets/pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
-// Utils
-import { NavLink } from './Utils.js/Navlink';
-import { Img } from './Utils.js/Image';
-import { Text } from './Utils.js/Text';
-import Icon from './Utils.js/Icon';
-import Button from './Utils.js/Button';
+// Reusable elements
+import { NavLink } from './elements/Navlink';
+import { Img } from './elements/Image';
+import { Text } from './elements/Text';
+import Icon from './elements/Icon';
+import Button from './elements/Button';
+import { handleShowCart } from './Cart/CartToggle';
 
 const Header = () => {
   return (
@@ -49,30 +50,32 @@ const Header = () => {
           text='Contact'
         />
 
-        <CartWrapper>
+        <Button
+          onClickAction={handleShowCart}
+          padding='5px'
+          backgroundColor='white'
+          textColor='red'
+          text='0'
+          fontSize='1.1rem'
+          fontFamily='Roboto'
+        >
           <Icon
-            color='white'
-            fontSize='2rem'
+            color='red'
+            fontSize='1.5rem'
             className='fa-solid fa-bag-shopping'
+            margin='5px'
           />
-
-          <Text
-            color='white'
-            fontFamily='Roboto'
-            fontWeight='bold'
-            text='0'
-            margin='30px 0 0 2.5px'
-          ></Text>
-        </CartWrapper>
+        </Button>
       </Navbar>
     </HeaderWrapper>
   );
 };
 // Styled components
 const HeaderWrapper = styled.header`
-  display: flex;
   top: 0;
   position: sticky;
+  z-index: 1;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
@@ -96,11 +99,6 @@ const LogoWrapper = styled.section`
   align-items: center;
   margin-left: 50px;
   cursor: pointer;
-`;
-
-const CartWrapper = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 const PokeballImg = styled.img`

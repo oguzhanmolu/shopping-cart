@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-// Utils
-import { Img } from '../Utils.js/Image';
-import { Text } from '../Utils.js/Text';
-import Button from '../Utils.js/Button';
+// Reusable elements
+import { Img } from '../elements/Image';
+import { Text } from '../elements/Text';
+import Button from '../elements/Button';
 
-const CardItem = ({ pokemonData }) => {
+const CardItem = ({ pokemonData, onClickAction, onMouseOutAction }) => {
   return (
     <CardWrapper>
       <Text
@@ -16,9 +16,12 @@ const CardItem = ({ pokemonData }) => {
       />
 
       <Img
+        onClickAction={(e) => onClickAction(e)}
+        onMouseOutAction={(e) => onMouseOutAction(e)}
         src={pokemonData.images.large}
         alt={`${pokemonData.name} image`}
-        height='400px'
+        height='350px'
+        cursor='zoom-in'
       />
 
       <Text
@@ -47,11 +50,10 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 25px;
+  gap: 5px;
+  padding: 10px;
   background-color: rgba(40, 40, 40, 0.5);
   border-radius: 10px;
-  text-align: center;
 `;
 
 export default CardItem;

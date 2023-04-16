@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import Cart from './components/Cart/Cart';
+import ModalBackdrop from './components/ModalBackdrop';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Footer />
       </BrowserRouter>
       <Cart />
+      <ModalBackdrop />
     </ContentWrapper>
   );
 }
