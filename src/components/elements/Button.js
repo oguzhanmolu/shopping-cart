@@ -8,8 +8,10 @@ const Button = ({
   text,
   fontFamily,
   fontWeight,
-  children,
+  borderRadius,
+  minWidth,
   onClickAction,
+  children,
 }) => {
   return (
     <ButtonItem
@@ -19,9 +21,10 @@ const Button = ({
         color: textColor,
         fontSize: fontSize,
         padding: padding,
+        minWidth: minWidth,
         fontFamily: fontFamily,
         fontWeight: fontWeight,
-        borderRadius: '5px',
+        borderRadius: borderRadius || '5px',
         cursor: 'pointer',
         transition: 'all ease-in-out .5s',
         textAlign: 'center',

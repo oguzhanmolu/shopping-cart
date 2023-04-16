@@ -1,24 +1,39 @@
 import { BrowserRouter } from 'react-router-dom';
-import Main from './components/Main';
+import { useState } from 'react';
 import Header from './components/Header';
+import Main from './components/Main';
 import Footer from './components/Footer';
-import styled from 'styled-components';
 import Cart from './components/Cart/Cart';
 import ModalBackdrop from './components/ModalBackdrop';
+import styled from 'styled-components';
 
-function App() {
+const App = () => {
+  const [cartItem, setCartItem] = useState([]);
+
+  // Add selected card to 'cartItem'
+  const handleAddCartItem = (e, pokemonArray) => {
+    let arr = [];
+    const pokemonName = e.target.parentNode.firstChild.textContent;
+    const pokemonIndex = pokemonArray.findIndex(
+      (pokemon) => pokemon.name == pokemonName
+    );
+    arr.push(pokemonArray[pokemonIndex]);
+
+    setCartItem([...cartItem, arr]);
+  };
+
   return (
     <ContentWrapper>
       <BrowserRouter>
         <Header />
-        <Main />
+        <Main onAddCartItem={handleAddCartItem} />
         <Footer />
       </BrowserRouter>
-      <Cart />
+      <Cart cartItem={cartItem} />
       <ModalBackdrop />
     </ContentWrapper>
   );
-}
+};
 
 const ContentWrapper = styled.div`
   min-height: 100vh;

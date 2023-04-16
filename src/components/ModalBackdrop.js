@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { handleHideCart } from './Cart/CartToggle';
+import { slideRight } from '../styles/Animations';
 const ModalBackdrop = () => {
   return (
     <BackdropWrapper
@@ -15,7 +16,8 @@ const BackdropWrapper = styled.div`
   height: 100vh;
   width: 100vw;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
+  animation: ${slideRight} 0.5s;
   cursor: pointer;
 `;
 

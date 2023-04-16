@@ -25,7 +25,6 @@ const slideLeft = keyframes`
 
 100%{
   transform: translateX(0%);
-}
-`;
+}`;
 
 export { appear, slideLeft, slideRight };

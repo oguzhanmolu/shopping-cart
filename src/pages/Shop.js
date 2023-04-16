@@ -3,7 +3,7 @@ import cards from '../constants/cards.json';
 import CardItem from '../components/Shop/CardItem';
 import { appear } from '../styles/Animations';
 
-const Shop = () => {
+const Shop = ({ onAddCartItem }) => {
   // Map and create an object with only necessary values from json data
   const pokemonArr = [];
   cards.data.forEach((card) => {
@@ -31,6 +31,7 @@ const Shop = () => {
   const cardItems = pokemonArr.map((card) => {
     return (
       <CardItem
+        buttonClickAction={(e) => onAddCartItem(e, pokemonArr)}
         key={card.id}
         pokemonData={card}
         onClickAction={handleZoomOnImage}

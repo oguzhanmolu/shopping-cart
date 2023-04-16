@@ -1,16 +1,29 @@
 import styled from 'styled-components';
 // Reusable elements
-import { Img } from '../elements/Image';
+import Img from '../elements/Image';
 import { Text } from '../elements/Text';
 import Button from '../elements/Button';
 
-const CardItem = ({ pokemonData, onClickAction, onMouseOutAction }) => {
+const CardItem = ({
+  pokemonData,
+  onClickAction,
+  onMouseOutAction,
+  buttonClickAction,
+}) => {
   return (
     <CardWrapper>
       <Text
         fontSize='1.5rem'
+        color='yellow'
+        text={`${pokemonData.name}`}
+        fontFamily='Pokemon Solid'
+        fontWeight='bold'
+      />
+
+      <Text
+        fontSize='1.25rem'
         color='white'
-        text={`${pokemonData.name} (${pokemonData.rarity})`}
+        text={`Rarity: ${pokemonData.rarity}`}
         fontFamily='Pokemon Solid'
         fontWeight='bold'
       />
@@ -27,7 +40,7 @@ const CardItem = ({ pokemonData, onClickAction, onMouseOutAction }) => {
       <Text
         fontSize='1.25rem'
         color='white'
-        text={`${pokemonData.prices.averageSellPrice} $`}
+        text={`Price: ${pokemonData.prices.averageSellPrice} $`}
         fontFamily='Pokemon Solid'
         fontWeight='bold'
         margin='10px 0 0 0'
@@ -41,6 +54,7 @@ const CardItem = ({ pokemonData, onClickAction, onMouseOutAction }) => {
         fontWeight='bold'
         text='Add to Cart!'
         padding='10px'
+        onClickAction={buttonClickAction}
       ></Button>
     </CardWrapper>
   );
@@ -51,9 +65,10 @@ const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  padding: 10px;
+  padding: 25px;
   background-color: rgba(40, 40, 40, 0.5);
   border-radius: 10px;
+  text-align: center;
 `;
 
 export default CardItem;

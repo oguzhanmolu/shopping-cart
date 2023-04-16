@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styled from 'styled-components';
+
 // Images
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
+
 // Reusable elements
 import { Text } from '../components/elements/Text';
 import Button from '../components/elements/Button';

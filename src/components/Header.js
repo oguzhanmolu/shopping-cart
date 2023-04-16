@@ -6,7 +6,7 @@ import pokeballImg from '../assets/pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
 // Reusable elements
 import { NavLink } from './elements/Navlink';
-import { Img } from './elements/Image';
+import Img from './elements/Image';
 import { Text } from './elements/Text';
 import Icon from './elements/Icon';
 import Button from './elements/Button';
@@ -55,8 +55,6 @@ const Header = () => {
           padding='5px'
           backgroundColor='white'
           textColor='red'
-          text='0'
-          fontSize='1.1rem'
           fontFamily='Roboto'
         >
           <Icon

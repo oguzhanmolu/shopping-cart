@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styled from 'styled-components';
@@ -6,11 +6,10 @@ import Home from '../pages/Home';
 import Shop from '../pages/Shop';
 import Contact from '../pages/Contact';
 
-const Main = () => {
-  // const [pokemons, setPokemons] = useState([]);
-
+const Main = ({ onAddCartItem }) => {
   // .fetch is sometimes slow and unreliable,
   // That's why replaced this with constants/cards.json instead
+  // const [pokemons, setPokemons] = useState([]);
   /* useEffect(() => {
     const fetchData = async () => {
       const endpoint = 'https://api.pokemontcg.io/v2/cards';
@@ -27,14 +26,18 @@ const Main = () => {
       setPokemons(data);
     };
     fetchData();
-  }, []);*/
+  }, []);
+  */
 
   return (
     <MainWrapper id='main'>
       <Routes>
         <Route index element={<Home />} />
         <Route path={routes.HOME} element={<Home />} />
-        <Route path={routes.SHOP} element={<Shop />} />
+        <Route
+          path={routes.SHOP}
+          element={<Shop onAddCartItem={onAddCartItem} />}
+        />
         <Route path={routes.CONTACT} element={<Contact />} />
       </Routes>
     </MainWrapper>
@@ -48,5 +51,3 @@ const MainWrapper = styled.main`
 `;
 
 export default Main;
-
-// import pokemonSymbols from '../assets/main-pokemon-symbols.png';
