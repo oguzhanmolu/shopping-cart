@@ -1,27 +1,45 @@
+import CartItem from './CartItem';
 import styled from 'styled-components';
-import '../../styles/Typewriter.css';
+import '../../styles/typewriter.css';
+import { Text } from '../elements/Text';
 
-import { handleHideCart } from './CartToggle';
+import { handleHideCart, handleCheckoutAnimation } from './CartToggle';
 import charizardImg from '../../assets/charizard.gif';
 // Reusable elements
 import Button from '../elements/Button';
 import Img from '../elements/Image';
 
 const Cart = ({ cartItem }) => {
-  // Show text animation after checkout button is pressed
-  const handleCheckoutAnimation = () => {
-    const text = document.querySelector('.typewriter');
-    text.style.display = 'block';
-  };
+  const cartItems = cartItem.map((item) => {
+    return <CartItem id={item.id} key={item.id} cardInfo={item} />;
+  });
   return (
-    <CartSection id='cart'>
-      <CartWrapper>
-        <ButtonWrapper>
+    <CartWrapper id='cart'>
+      <Text
+        fontSize='2.25rem'
+        color='white'
+        text='Your Shopping Cart'
+        fontFamily='Pokemon Solid'
+        fontWeight='bold'
+      />
+
+      <CartItemWrapper>{cartItems}</CartItemWrapper>
+      <ButtonWrapper>
+        <Text
+          fontSize='1.75rem'
+          color='white'
+          text={`Your Total: $`}
+          fontFamily='Pokemon Solid'
+          fontWeight='bold'
+        />
+
+        <div>
           <Button
             textColor='white'
             backgroundColor='rgb(42,117,187)'
             fontSize='1.5rem'
             fontFamily='Pokemon Solid'
+            margin='0 10px 0 0'
             padding='10px'
             minWidth='150px'
             onClickAction={handleCheckoutAnimation}
@@ -32,48 +50,55 @@ const Cart = ({ cartItem }) => {
             backgroundColor='rgb(228,0,8)'
             fontSize='1.5rem'
             fontFamily='Pokemon Solid'
+            margin='0 0 0 10px'
             padding='10px'
             minWidth='150px'
             onClickAction={handleHideCart}
             text='Close Cart'
           />
-        </ButtonWrapper>
-
-        <div>
-          <div className='typewriter'>
-            <p>Thank you for your purchase! *roars*</p>
-          </div>
-
-          <Img height='250px' src={charizardImg} alt='Charizard GIF' />
         </div>
-      </CartWrapper>
-    </CartSection>
+      </ButtonWrapper>
+
+      <div>
+        <div className='Typewriter__Wrapper'>
+          <p className='Typewriter__Animation'>
+            Thank you for your purchase! *roars*
+          </p>
+        </div>
+
+        <Img height='200px' src={charizardImg} alt='Charizard GIF' />
+      </div>
+    </CartWrapper>
   );
 };
 
-const CartSection = styled.section`
-  position: fixed;
-  height: 100vh;
+const CartWrapper = styled.section`
+  min-height: 100vh;
   width: 30vw;
   left: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 10px;
   z-index: 2;
-  background-color: white;
   transition: all ease-in-out 1s;
+  background-color: #252628;
   text-align: center;
 `;
 
-const CartWrapper = styled.div`
-  height: 100vh;
+const CartItemWrapper = styled.div`
+  height: 57.5vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #252628;
+  overflow-y: auto;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 25px;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export default Cart;

@@ -12,7 +12,7 @@ import Icon from './elements/Icon';
 import Button from './elements/Button';
 import { handleShowCart } from './Cart/CartToggle';
 
-const Header = () => {
+const Header = ({ cartItem }) => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
@@ -49,21 +49,34 @@ const Header = () => {
           color='white'
           text='Contact'
         />
+        <ButtonWrapper>
+          <Button
+            onClickAction={handleShowCart}
+            padding='20px'
+            backgroundColor='white'
+            textColor='rgb(228,0,8)'
+            fontSize='1rem'
+            fontFamily='Roboto'
+            fontWeight='bold'
+            borderRadius='50px'
+          >
+            <Icon
+              color='rgb(228,0,8)'
+              fontSize='1.75rem'
+              className='fa-solid fa-bag-shopping'
+            />
+          </Button>
 
-        <Button
-          onClickAction={handleShowCart}
-          padding='5px'
-          backgroundColor='white'
-          textColor='red'
-          fontFamily='Roboto'
-        >
-          <Icon
+          <Text
+            position='fixed'
+            margin='52.5px 0 0 0'
+            fontSize='1rem'
             color='red'
-            fontSize='1.5rem'
-            className='fa-solid fa-bag-shopping'
-            margin='5px'
-          />
-        </Button>
+            fontFamily='Roboto'
+            fontWeight='bold'
+            text={cartItem.reduce((acu, cur) => acu + cur.count, 0)}
+          ></Text>
+        </ButtonWrapper>
       </Navbar>
     </HeaderWrapper>
   );
@@ -104,13 +117,19 @@ const PokeballImg = styled.img`
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 101px;
+  margin-top: 100px;
   height: 75px;
   transition: all ease-in-out 0.5s;
   cursor: pointer;
   &:hover {
     scale: 2.5;
   }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default Header;

@@ -13,3 +13,11 @@ export const handleHideCart = () => {
   cart.style.transform = 'translateX(100%)';
   modalBackdrop.style.display = 'none';
 };
+
+// Show text animation after checkout button is pressed
+export const handleCheckoutAnimation = () => {
+  const text = document.querySelector('.Typewriter__Animation');
+  text.style.display = 'block';
+
+  setInterval(() => window.location.reload(), 5000);
+};

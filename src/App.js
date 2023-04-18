@@ -6,27 +6,16 @@ import Footer from './components/Footer';
 import Cart from './components/Cart/Cart';
 import ModalBackdrop from './components/ModalBackdrop';
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const App = () => {
   const [cartItem, setCartItem] = useState([]);
 
-  // Add selected card to 'cartItem'
-  const handleAddCartItem = (e, pokemonArray) => {
-    let arr = [];
-    const pokemonName = e.target.parentNode.firstChild.textContent;
-    const pokemonIndex = pokemonArray.findIndex(
-      (pokemon) => pokemon.name == pokemonName
-    );
-    arr.push(pokemonArray[pokemonIndex]);
-
-    setCartItem([...cartItem, arr]);
-  };
-
   return (
     <ContentWrapper>
       <BrowserRouter>
-        <Header />
-        <Main onAddCartItem={handleAddCartItem} />
+        <Header cartItem={cartItem} />
+        <Main cartItem={cartItem} setCartItem={setCartItem} />
         <Footer />
       </BrowserRouter>
       <Cart cartItem={cartItem} />

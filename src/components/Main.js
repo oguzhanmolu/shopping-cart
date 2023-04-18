@@ -6,7 +6,7 @@ import Home from '../pages/Home';
 import Shop from '../pages/Shop';
 import Contact from '../pages/Contact';
 
-const Main = ({ onAddCartItem }) => {
+const Main = ({ cartItem, setCartItem }) => {
   // .fetch is sometimes slow and unreliable,
   // That's why replaced this with constants/cards.json instead
   // const [pokemons, setPokemons] = useState([]);
@@ -36,7 +36,7 @@ const Main = ({ onAddCartItem }) => {
         <Route path={routes.HOME} element={<Home />} />
         <Route
           path={routes.SHOP}
-          element={<Shop onAddCartItem={onAddCartItem} />}
+          element={<Shop cartItem={cartItem} setCartItem={setCartItem} />}
         />
         <Route path={routes.CONTACT} element={<Contact />} />
       </Routes>

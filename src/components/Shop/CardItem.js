@@ -6,12 +6,13 @@ import Button from '../elements/Button';
 
 const CardItem = ({
   pokemonData,
-  onClickAction,
-  onMouseOutAction,
-  buttonClickAction,
+  onImageClick,
+  onImageMouseOut,
+  onButtonClick,
+  id,
 }) => {
   return (
-    <CardWrapper>
+    <CardWrapper id={id}>
       <Text
         fontSize='1.5rem'
         color='yellow'
@@ -29,9 +30,9 @@ const CardItem = ({
       />
 
       <Img
-        onClickAction={(e) => onClickAction(e)}
-        onMouseOutAction={(e) => onMouseOutAction(e)}
-        src={pokemonData.images.large}
+        onClickAction={(e) => onImageClick(e)}
+        onMouseOutAction={(e) => onImageMouseOut(e)}
+        src={pokemonData.image}
         alt={`${pokemonData.name} image`}
         height='350px'
         cursor='zoom-in'
@@ -40,7 +41,7 @@ const CardItem = ({
       <Text
         fontSize='1.25rem'
         color='white'
-        text={`Price: ${pokemonData.prices.averageSellPrice} $`}
+        text={`Price: ${pokemonData.price} $`}
         fontFamily='Pokemon Solid'
         fontWeight='bold'
         margin='10px 0 0 0'
@@ -54,7 +55,7 @@ const CardItem = ({
         fontWeight='bold'
         text='Add to Cart!'
         padding='10px'
-        onClickAction={buttonClickAction}
+        onClickAction={onButtonClick}
       ></Button>
     </CardWrapper>
   );

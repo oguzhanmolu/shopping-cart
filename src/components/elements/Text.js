@@ -6,6 +6,7 @@ const Text = ({
   fontWeight,
   margin,
   textAlign,
+  position,
 }) => {
   return (
     <p
@@ -16,6 +17,7 @@ const Text = ({
         fontWeight: fontWeight,
         margin: margin,
         textAlign: textAlign,
+        position: position,
       }}
     >
       {text}

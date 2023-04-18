@@ -2,19 +2,45 @@ import styled from 'styled-components';
 import cards from '../constants/cards.json';
 import CardItem from '../components/Shop/CardItem';
 import { appear } from '../styles/Animations';
+import { click } from '@testing-library/user-event/dist/click';
 
-const Shop = ({ onAddCartItem }) => {
-  // Map and create an object with only necessary values from json data
+const Shop = ({ cartItem, setCartItem }) => {
+  // Map and create an object with only necessary values from long json data
   const pokemonArr = [];
   cards.data.forEach((card) => {
     pokemonArr.push({
       id: card.id,
       name: card.name,
       rarity: card.rarity || 'Unknown',
-      images: card.images,
-      prices: card.cardmarket.prices,
+      image: card.images.large,
+      price: card.cardmarket.prices.averageSellPrice,
+      count: 1,
     });
   });
+
+  // Add selected card to 'cartItem'
+  const handleAddToCart = (e) => {
+    // Clicked card's id and idex from cartItem
+    const pokemonId = e.target.parentNode.id;
+    const pokemonIndexInCart = cartItem.findIndex(
+      (pokemon) => pokemon.id === pokemonId
+    );
+
+    // If Card (id) does not exist in cart, add it
+    if (pokemonIndexInCart === -1) {
+      const clickedPokemonCard = pokemonArr.find(
+        (pokemon) => pokemon.id === pokemonId
+      );
+
+      setCartItem([...cartItem, clickedPokemonCard]);
+    }
+    // If it exists, card.count++
+    else {
+      const newCart = [...cartItem];
+      newCart[pokemonIndexInCart].count++;
+      setCartItem(newCart);
+    }
+  };
 
   // Zoom in image on click
   const handleZoomOnImage = (e) => {
@@ -31,11 +57,12 @@ const Shop = ({ onAddCartItem }) => {
   const cardItems = pokemonArr.map((card) => {
     return (
       <CardItem
-        buttonClickAction={(e) => onAddCartItem(e, pokemonArr)}
         key={card.id}
+        id={card.id}
         pokemonData={card}
-        onClickAction={handleZoomOnImage}
-        onMouseOutAction={handleZoomOutImage}
+        onImageClick={handleZoomOnImage}
+        onImageMouseOut={handleZoomOutImage}
+        onButtonClick={(e) => handleAddToCart(e)}
       />
     );
   });
