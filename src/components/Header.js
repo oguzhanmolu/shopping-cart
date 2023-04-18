@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styled from 'styled-components';
+import { itemTotalCount } from './Utils.js/CartSum';
 // Images
 import pokeballImg from '../assets/pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
@@ -52,7 +53,7 @@ const Header = ({ cartItem }) => {
         <ButtonWrapper>
           <Button
             onClickAction={handleShowCart}
-            padding='20px'
+            padding='15px'
             backgroundColor='white'
             textColor='rgb(228,0,8)'
             fontSize='1rem'
@@ -62,19 +63,18 @@ const Header = ({ cartItem }) => {
           >
             <Icon
               color='rgb(228,0,8)'
-              fontSize='1.75rem'
+              fontSize='1.5rem'
               className='fa-solid fa-bag-shopping'
             />
           </Button>
 
           <Text
             position='fixed'
-            margin='52.5px 0 0 0'
-            fontSize='1rem'
+            margin='40px 0 0 0'
             color='red'
             fontFamily='Roboto'
             fontWeight='bold'
-            text={cartItem.reduce((acu, cur) => acu + cur.count, 0)}
+            text={itemTotalCount(cartItem)}
           ></Text>
         </ButtonWrapper>
       </Navbar>

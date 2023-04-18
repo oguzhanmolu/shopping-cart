@@ -18,7 +18,7 @@ const App = () => {
         <Main cartItem={cartItem} setCartItem={setCartItem} />
         <Footer />
       </BrowserRouter>
-      <Cart cartItem={cartItem} />
+      <Cart cartItem={cartItem} setCartItem={setCartItem} />
       <ModalBackdrop />
     </ContentWrapper>
   );

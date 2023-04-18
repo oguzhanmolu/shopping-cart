@@ -3,7 +3,7 @@ import Img from '../elements/Image';
 import { Text } from '../elements/Text';
 import Button from '../elements/Button';
 
-const CartItem = ({ id, cardInfo }) => {
+const CartItem = ({ id, cardInfo, handleCountChange }) => {
   return (
     <CartItemWrapper>
       <Img height='200px' src={cardInfo.image} alt={`${cardInfo.name} image`} />
@@ -42,7 +42,8 @@ const CartItem = ({ id, cardInfo }) => {
             text='-'
             fontSize='1.25rem'
             padding='7.5px'
-          ></Button>
+            onClickAction={(e) => handleCountChange(e, 'decrement')}
+          />
 
           <Text
             fontSize='1.5rem'
@@ -60,6 +61,7 @@ const CartItem = ({ id, cardInfo }) => {
             text='+'
             fontSize='1.25rem'
             padding='7.5px'
+            onClickAction={(e) => handleCountChange(e, 'increment')}
           ></Button>
         </div>
       </TextWrapper>

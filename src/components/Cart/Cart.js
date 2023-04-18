@@ -2,16 +2,43 @@ import CartItem from './CartItem';
 import styled from 'styled-components';
 import '../../styles/typewriter.css';
 import { Text } from '../elements/Text';
+import { itemTotalPrice } from '../Utils.js/CartSum';
 
-import { handleHideCart, handleCheckoutAnimation } from './CartToggle';
+import { handleHideCart, handleCheckout } from './CartToggle';
 import charizardImg from '../../assets/charizard.gif';
 // Reusable elements
 import Button from '../elements/Button';
 import Img from '../elements/Image';
 
-const Cart = ({ cartItem }) => {
+const Cart = ({ cartItem, setCartItem }) => {
+  // Handle increment/decrement after +- buttons are clicked
+  const handleCountChange = (e, action) => {
+    const clickedCardId = e.target.parentNode.parentNode.id;
+    const pokemonIndexInCart = cartItem.findIndex(
+      (pokemon) => pokemon.id === clickedCardId
+    );
+    const newCart = [...cartItem];
+
+    action === 'increment'
+      ? newCart[pokemonIndexInCart].count++
+      : newCart[pokemonIndexInCart].count--;
+
+    // Mutate object if count is 0
+    if (newCart[pokemonIndexInCart].count <= 0)
+      newCart.splice(pokemonIndexInCart, 1);
+
+    setCartItem(newCart);
+  };
+
   const cartItems = cartItem.map((item) => {
-    return <CartItem id={item.id} key={item.id} cardInfo={item} />;
+    return (
+      <CartItem
+        handleCountChange={handleCountChange}
+        id={item.id}
+        key={item.id}
+        cardInfo={item}
+      />
+    );
   });
   return (
     <CartWrapper id='cart'>
@@ -28,7 +55,7 @@ const Cart = ({ cartItem }) => {
         <Text
           fontSize='1.75rem'
           color='white'
-          text={`Your Total: $`}
+          text={`Your Total: ${itemTotalPrice(cartItem)} $`}
           fontFamily='Pokemon Solid'
           fontWeight='bold'
         />
@@ -42,7 +69,7 @@ const Cart = ({ cartItem }) => {
             margin='0 10px 0 0'
             padding='10px'
             minWidth='150px'
-            onClickAction={handleCheckoutAnimation}
+            onClickAction={handleCheckout}
             text='Checkout'
           />
           <Button

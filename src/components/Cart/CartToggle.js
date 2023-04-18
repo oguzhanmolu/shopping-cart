@@ -15,7 +15,7 @@ export const handleHideCart = () => {
 };
 
 // Show text animation after checkout button is pressed
-export const handleCheckoutAnimation = () => {
+export const handleCheckout = () => {
   const text = document.querySelector('.Typewriter__Animation');
   text.style.display = 'block';
 
