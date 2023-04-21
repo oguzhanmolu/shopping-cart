@@ -1,28 +1,38 @@
+import styled from 'styled-components';
+
 const Text = ({
-  fontSize,
+  position,
+  margin,
   color,
-  text,
+  fontSize,
   fontFamily,
   fontWeight,
-  margin,
   textAlign,
-  position,
+  text,
 }) => {
   return (
-    <p
-      style={{
-        fontSize: fontSize,
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        margin: margin,
-        textAlign: textAlign,
-        position: position,
-      }}
+    <TextItem
+      position={position}
+      margin={margin}
+      color={color}
+      fontSize={fontSize}
+      fontFamily={fontFamily}
+      fontWeight={fontWeight}
+      textAlign={textAlign}
     >
       {text}
-    </p>
+    </TextItem>
   );
 };
 
-export { Text };
+const TextItem = styled.p`
+  position: ${(props) => props.position};
+  margin: ${(props) => props.margin};
+  color: ${(props) => props.color};
+  font-size: ${(props) => props.fontSize};
+  font-family: ${(props) => props.fontFamily};
+  font-weight: ${(props) => props.fontWeight};
+  text-align: ${(props) => props.textAlign};
+`;
+
+export default Text;

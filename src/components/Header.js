@@ -1,65 +1,83 @@
-import { Link } from 'react-router-dom';
-import routes from '../constants/routes.json';
 import styled from 'styled-components';
-import { itemTotalCount } from './Utils.js/CartSum';
+import routes from '../data/routes.json';
+import { Link } from 'react-router-dom';
 // Images
 import pokeballImg from '../assets/pokeball-image.png';
 import headerLogo from '../assets/header-logo.png';
 // Reusable elements
-import { NavLink } from './elements/Navlink';
+import NavLink from './elements/NavLink';
 import Img from './elements/Image';
-import { Text } from './elements/Text';
+import Text from './elements/Text';
 import Icon from './elements/Icon';
 import Button from './elements/Button';
+//
+import { itemTotalCount } from './Utils.js/CartSum';
 import { handleShowCart } from './Cart/CartToggle';
 
 const Header = ({ cartItem }) => {
   return (
     <HeaderWrapper>
+      {/* Header logo */}
       <LogoWrapper>
         <Link to={routes.HOME}>
-          <Img src={headerLogo} alt='pokemon-logo' height='50px' />
+          <Img src={headerLogo} alt='pokemon-logo' height='60px' />
         </Link>
 
         <Text
-          fontSize='1.5rem'
+          fontSize='1.4rem'
           color='white'
           fontFamily='Pokemon Solid'
           text='PoKéShoP'
         ></Text>
       </LogoWrapper>
 
-      <PokeballImg src={pokeballImg} alt='pokeball image' />
+      {/* Center pokeball image */}
+      <Img
+        hoverScale='scale(2.5)'
+        src={pokeballImg}
+        alt='Pokeball image'
+        position='absolute'
+        height='75px'
+        margin='100px auto 0 auto'
+        cursor='pointer'
+      />
 
+      {/* Navbar */}
       <Navbar>
         <NavLink
           to={routes.HOME}
-          fontSize='1.75rem'
-          color='white'
           text='Home'
+          scale='scale(1.25)'
+          color='white'
+          fontSize='1.75rem'
         />
+
         <NavLink
           to={routes.SHOP}
-          fontSize='1.75rem'
-          color='white'
           text='Shop'
+          scale='scale(1.25)'
+          color='white'
+          fontSize='1.75rem'
         />
+
         <NavLink
           to={routes.CONTACT}
-          fontSize='1.75rem'
-          color='white'
           text='Contact'
+          scale='scale(1.25)'
+          color='white'
+          fontSize='1.75rem'
         />
-        <ButtonWrapper>
+
+        {/* Cart icon group */}
+        <CartWrapper>
           <Button
             onClickAction={handleShowCart}
-            padding='15px'
+            hoverScale='scale(1.15)'
+            padding='10px 10px 17.5px 10px'
             backgroundColor='white'
             textColor='rgb(228,0,8)'
-            fontSize='1rem'
             fontFamily='Roboto'
             fontWeight='bold'
-            borderRadius='50px'
           >
             <Icon
               color='rgb(228,0,8)'
@@ -69,18 +87,19 @@ const Header = ({ cartItem }) => {
           </Button>
 
           <Text
-            position='fixed'
-            margin='40px 0 0 0'
+            position='absolute'
+            margin='34px 0 0 0'
             color='red'
             fontFamily='Roboto'
             fontWeight='bold'
             text={itemTotalCount(cartItem)}
           ></Text>
-        </ButtonWrapper>
+        </CartWrapper>
       </Navbar>
     </HeaderWrapper>
   );
 };
+
 // Styled components
 const HeaderWrapper = styled.header`
   top: 0;
@@ -94,6 +113,14 @@ const HeaderWrapper = styled.header`
   border-bottom: 6.5px solid black;
 `;
 
+const LogoWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50px;
+  cursor: pointer;
+`;
+
 const Navbar = styled.ul`
   display: inline-flex;
   width: 450px;
@@ -104,29 +131,7 @@ const Navbar = styled.ul`
   list-style-type: none;
 `;
 
-const LogoWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 50px;
-  cursor: pointer;
-`;
-
-const PokeballImg = styled.img`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 100px;
-  height: 75px;
-  transition: all ease-in-out 0.5s;
-  cursor: pointer;
-  &:hover {
-    scale: 2.5;
-  }
-`;
-
-const ButtonWrapper = styled.div`
+const CartWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

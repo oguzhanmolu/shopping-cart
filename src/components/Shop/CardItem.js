@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 // Reusable elements
 import Img from '../elements/Image';
-import { Text } from '../elements/Text';
+import Text from '../elements/Text';
 import Button from '../elements/Button';
 
-const CardItem = ({
-  pokemonData,
-  onImageClick,
-  onImageMouseOut,
-  onButtonClick,
-  id,
-}) => {
+const CardItem = ({ pokemonData, onButtonClick, id }) => {
   return (
     <CardWrapper id={id}>
       <Text
@@ -30,12 +24,10 @@ const CardItem = ({
       />
 
       <Img
-        onClickAction={(e) => onImageClick(e)}
-        onMouseOutAction={(e) => onImageMouseOut(e)}
         src={pokemonData.image}
         alt={`${pokemonData.name} image`}
         height='350px'
-        cursor='zoom-in'
+        cursor='pointer'
       />
 
       <Text
@@ -48,14 +40,15 @@ const CardItem = ({
       />
 
       <Button
+        padding='10px'
+        onClickAction={onButtonClick}
+        hoverScale='scale(1.25)'
         backgroundColor='rgb(228,0,8)'
         textColor='white'
         fontSize='1.25rem'
         fontFamily='Roboto'
         fontWeight='bold'
         text='Add to Cart!'
-        padding='10px'
-        onClickAction={onButtonClick}
       ></Button>
     </CardWrapper>
   );
@@ -66,7 +59,7 @@ const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  padding: 25px;
+  padding: 25px 50px 25px 50px;
   background-color: rgba(40, 40, 40, 0.5);
   border-radius: 10px;
   text-align: center;

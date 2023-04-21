@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import routes from '../constants/routes.json';
+import routes from '../data/routes.json';
 import styled from 'styled-components';
 import Home from '../pages/Home';
 import Shop from '../pages/Shop';
@@ -8,7 +7,7 @@ import Contact from '../pages/Contact';
 
 const Main = ({ cartItem, setCartItem }) => {
   // .fetch is sometimes slow and unreliable,
-  // That's why replaced this with constants/cards.json instead
+  // That's why replaced this with data/cards.json instead
   // const [pokemons, setPokemons] = useState([]);
   /* useEffect(() => {
     const fetchData = async () => {
@@ -33,11 +32,14 @@ const Main = ({ cartItem, setCartItem }) => {
     <MainWrapper id='main'>
       <Routes>
         <Route index element={<Home />} />
+
         <Route path={routes.HOME} element={<Home />} />
+
         <Route
           path={routes.SHOP}
           element={<Shop cartItem={cartItem} setCartItem={setCartItem} />}
         />
+
         <Route path={routes.CONTACT} element={<Contact />} />
       </Routes>
     </MainWrapper>

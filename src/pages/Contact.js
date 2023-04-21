@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import Icon from '../components/elements/Icon';
-import { Text } from '../components/elements/Text';
 import { appear } from '../styles/Animations';
+// Reusable elements
+import Icon from '../components/elements/Icon';
+import Text from '../components/elements/Text';
 
 const Contact = () => {
+  // IconItem
   const IconItem = ({ symbol }) => {
     return (
       <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>
-        <Icon className={`fa-brands fa-${symbol}`} />
+        <Icon className={`fa-brands fa-${symbol}`} color='white' />
       </a>
     );
   };
@@ -70,6 +72,7 @@ const Contact = () => {
   );
 };
 
+// Styles
 const ContactWrapper = styled.section`
   height: 75vh;
   width: 95vw;
@@ -77,23 +80,22 @@ const ContactWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  padding: 50px;
+  gap: 50px;
   border-radius: 10px;
   background-color: rgba(40, 40, 40, 0.5);
   animation: ${appear} 2.5s;
+  text-align: center;
 `;
 
 const IconWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 15px;
   & > * {
     padding: 10px;
     border-radius: 10px;
     font-size: 2rem;
     background-color: rgba(40, 40, 40, 0.5);
-    text-align: center;
     transition: all ease-in-out 0.5s;
 
     &:hover {

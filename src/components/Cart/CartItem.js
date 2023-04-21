@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Img from '../elements/Image';
-import { Text } from '../elements/Text';
+import Text from '../elements/Text';
 import Button from '../elements/Button';
 
 const CartItem = ({ id, cardInfo, handleCountChange }) => {

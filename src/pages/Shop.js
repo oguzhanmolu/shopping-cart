@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import cards from '../constants/cards.json';
+import cards from '../data/cards.json';
 import CardItem from '../components/Shop/CardItem';
+// Animation
 import { appear } from '../styles/Animations';
-import { click } from '@testing-library/user-event/dist/click';
 
 const Shop = ({ cartItem, setCartItem }) => {
   // Map and create an object with only necessary values from long json data
@@ -18,9 +18,9 @@ const Shop = ({ cartItem, setCartItem }) => {
     });
   });
 
-  // Add selected card to 'cartItem'
+  // Add clicked card to 'cartItem'
   const handleAddToCart = (e) => {
-    // Clicked card's id and idex from cartItem
+    // Clicked card's id and index from cartItem
     const pokemonId = e.target.parentNode.id;
     const pokemonIndexInCart = cartItem.findIndex(
       (pokemon) => pokemon.id === pokemonId
@@ -31,9 +31,9 @@ const Shop = ({ cartItem, setCartItem }) => {
       const clickedPokemonCard = pokemonArr.find(
         (pokemon) => pokemon.id === pokemonId
       );
-
       setCartItem([...cartItem, clickedPokemonCard]);
     }
+
     // If it exists, card.count++
     else {
       const newCart = [...cartItem];
@@ -42,26 +42,13 @@ const Shop = ({ cartItem, setCartItem }) => {
     }
   };
 
-  // Zoom in image on click
-  const handleZoomOnImage = (e) => {
-    e.target.style.scale = '1.6';
-    e.target.style.cursor = 'zoom-out';
-  };
-  // Zoom out image on mouseout
-  const handleZoomOutImage = (e) => {
-    e.target.style.scale = '1';
-    e.target.style.cursor = 'zoom-in';
-  };
-
-  // Create cart items from mapped 'pokemonArr'
+  // Create cart items from each 'pokemonArr' object
   const cardItems = pokemonArr.map((card) => {
     return (
       <CardItem
         key={card.id}
         id={card.id}
         pokemonData={card}
-        onImageClick={handleZoomOnImage}
-        onImageMouseOut={handleZoomOutImage}
         onButtonClick={(e) => handleAddToCart(e)}
       />
     );

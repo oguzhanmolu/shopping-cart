@@ -1,21 +1,20 @@
-import { Link } from 'react-router-dom';
-import routes from '../constants/routes.json';
 import styled from 'styled-components';
-
-// Images
+import routes from '../data/routes.json';
+import { Link } from 'react-router-dom';
+// Reusable elements
+import Text from '../components/elements/Text';
+import Button from '../components/elements/Button';
+import Img from '../components/elements/Image';
+// CSS
 import mainPokemonImg from '../assets/main-pokemon-cards.png';
 import mainPokemonImg2 from '../assets/main-pokemon-cards2.png';
-
-// Reusable elements
-import { Text } from '../components/elements/Text';
-import Button from '../components/elements/Button';
 import { appear, slideLeft, slideRight } from '../styles/Animations';
 
-// Home page
 const Home = () => {
   return (
     <HomeWrapper>
-      <TextWrapper>
+      {/* Title */}
+      <div>
         <Text
           fontSize='3rem'
           color='yellow'
@@ -30,13 +29,26 @@ const Home = () => {
           fontFamily='Pokemon Solid'
           margin='25px 0 0 0'
         />
-      </TextWrapper>
-
-      <div>
-        <HomeImg src={mainPokemonImg} alt='Pokemon cards packages' />
-        <HomeImg2 src={mainPokemonImg2} alt='Pokemon cards' />
       </div>
 
+      {/* Middle images */}
+      <div>
+        <Img
+          src={mainPokemonImg}
+          alt='Pokemon cards packages'
+          height='300px'
+          animation={slideRight}
+        />
+
+        <Img
+          src={mainPokemonImg2}
+          alt='Pokemon cards'
+          height='325px'
+          animation={slideLeft}
+        />
+      </div>
+
+      {/* Lower Text */}
       <Text
         fontSize='1.75rem'
         color='white'
@@ -44,21 +56,24 @@ const Home = () => {
         fontFamily='Pokemon Solid'
       />
 
+      {/* Button leads to shop */}
       <Link to={routes.SHOP}>
         <Button
+          hoverScale='scale(1.25)'
+          padding='15px'
           backgroundColor='rgb(228,0,8)'
           textColor='white'
           fontSize='1.25rem'
           fontFamily='Roboto'
           fontWeight='bold'
           text='Check Now!'
-          padding='15px'
-        ></Button>
+        />
       </Link>
     </HomeWrapper>
   );
 };
 
+// Styles
 const HomeWrapper = styled.section`
   height: 75vh;
   width: 95vw;
@@ -69,20 +84,7 @@ const HomeWrapper = styled.section`
   animation: ${appear} 2.5s;
   background-color: rgba(40, 40, 40, 0.5);
   border-radius: 10px;
-`;
-
-const TextWrapper = styled.div`
   text-align: center;
-`;
-
-const HomeImg = styled.img`
-  height: 275px;
-  animation: ${slideRight} 1.5s;
-`;
-
-const HomeImg2 = styled.img`
-  height: 300px;
-  animation: ${slideLeft} 1.5s;
 `;
 
 export default Home;

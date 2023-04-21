@@ -1,27 +1,22 @@
-import { hover } from '@testing-library/user-event/dist/hover';
 import styled from 'styled-components';
 
-const Icon = ({ color, className, fontSize, margin }) => {
+const Icon = ({ className, margin, color, fontSize }) => {
   return (
     <IconItem
-      style={{
-        color: color,
-        fontSize: fontSize,
-        margin: margin,
-      }}
       className={className}
+      margin={margin}
+      color={color}
+      fontSize={fontSize}
     />
   );
 };
 
 const IconItem = styled.i`
-  color: white;
-  transition: all ease-in-out 0.5s;
+  margin: ${(props) => props.margin};
+  color: ${(props) => props.color};
+  font-size: ${(props) => props.fontSize};
   animation-duration: 5s;
   cursor: pointer;
-  &:hover {
-    scale: 1.25;
-  }
 `;
 
 export default Icon;

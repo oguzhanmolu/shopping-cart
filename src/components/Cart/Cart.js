@@ -1,17 +1,17 @@
-import CartItem from './CartItem';
 import styled from 'styled-components';
-import '../../styles/typewriter.css';
-import { Text } from '../elements/Text';
+import CartItem from './CartItem';
 import { itemTotalPrice } from '../Utils.js/CartSum';
-
+// CSS & Assets
+import '../../styles/typewriter.css';
 import { handleHideCart, handleCheckout } from './CartToggle';
 import charizardImg from '../../assets/charizard.gif';
 // Reusable elements
 import Button from '../elements/Button';
 import Img from '../elements/Image';
+import Text from '../elements/Text';
 
 const Cart = ({ cartItem, setCartItem }) => {
-  // Handle increment/decrement after +- buttons are clicked
+  // Handle increment/decrement after +- buttons are clicked in cart
   const handleCountChange = (e, action) => {
     const clickedCardId = e.target.parentNode.parentNode.id;
     const pokemonIndexInCart = cartItem.findIndex(
@@ -23,7 +23,7 @@ const Cart = ({ cartItem, setCartItem }) => {
       ? newCart[pokemonIndexInCart].count++
       : newCart[pokemonIndexInCart].count--;
 
-    // Mutate object if count is 0
+    //  If card.count is 0 => Mutate object from array
     if (newCart[pokemonIndexInCart].count <= 0)
       newCart.splice(pokemonIndexInCart, 1);
 
@@ -53,34 +53,36 @@ const Cart = ({ cartItem, setCartItem }) => {
       <CartItemWrapper>{cartItems}</CartItemWrapper>
       <ButtonWrapper>
         <Text
-          fontSize='1.75rem'
           color='white'
-          text={`Your Total: ${itemTotalPrice(cartItem)} $`}
+          fontSize='1.75rem'
           fontFamily='Pokemon Solid'
           fontWeight='bold'
+          text={`Your Total: ${itemTotalPrice(cartItem)} $`}
         />
 
         <div>
           <Button
-            textColor='white'
-            backgroundColor='rgb(42,117,187)'
-            fontSize='1.5rem'
-            fontFamily='Pokemon Solid'
+            onClickAction={handleCheckout}
+            hoverScale='scale(1.25)'
+            minWidth='150px'
             margin='0 10px 0 0'
             padding='10px'
-            minWidth='150px'
-            onClickAction={handleCheckout}
+            backgroundColor='rgb(42,117,187)'
+            textColor='white'
+            fontSize='1.5rem'
+            fontFamily='Pokemon Solid'
             text='Checkout'
           />
           <Button
-            textColor='white'
-            backgroundColor='rgb(228,0,8)'
-            fontSize='1.5rem'
-            fontFamily='Pokemon Solid'
+            onClickAction={handleHideCart}
+            hoverScale='scale(1.25)'
+            minWidth='150px'
             margin='0 0 0 10px'
             padding='10px'
-            minWidth='150px'
-            onClickAction={handleHideCart}
+            backgroundColor='rgb(228,0,8)'
+            textColor='white'
+            fontSize='1.5rem'
+            fontFamily='Pokemon Solid'
             text='Close Cart'
           />
         </div>
