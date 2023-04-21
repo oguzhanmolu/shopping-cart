@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.ee469675.css",
+    "main.js": "/shopping-cart/static/js/main.7edec861.js",
+    "static/media/charizard.gif": "/shopping-cart/static/media/charizard.0b01bee17210816f0752.gif",
+    "static/media/main-pokemon-cards2.png": "/shopping-cart/static/media/main-pokemon-cards2.81ef71afbf0ea2963f99.png",
+    "static/media/main-pokemon-cards.png": "/shopping-cart/static/media/main-pokemon-cards.44cb86d0f191061ec99a.png",
+    "static/media/pokeball-image.png": "/shopping-cart/static/media/pokeball-image.c9fcf1251861161c4baa.png",
+    "static/media/header-logo.png": "/shopping-cart/static/media/header-logo.8ca42a6b374e2cef83b4.png",
+    "index.html": "/shopping-cart/index.html",
+    "main.ee469675.css.map": "/shopping-cart/static/css/main.ee469675.css.map",
+    "main.7edec861.js.map": "/shopping-cart/static/js/main.7edec861.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee469675.css",
+    "static/js/main.7edec861.js"
+  ]
+}
