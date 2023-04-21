@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -12,11 +12,11 @@ const App = () => {
 
   return (
     <ContentWrapper>
-      <BrowserRouter>
+      <HashRouter>
         <Header cartItem={cartItem} />
         <Main cartItem={cartItem} setCartItem={setCartItem} />
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
       <Cart cartItem={cartItem} setCartItem={setCartItem} />
       <ModalBackdrop />
     </ContentWrapper>
