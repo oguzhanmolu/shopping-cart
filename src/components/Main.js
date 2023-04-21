@@ -31,7 +31,7 @@ const Main = ({ cartItem, setCartItem }) => {
   return (
     <MainWrapper id='main'>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path='/' element={<Home />} />
 
         <Route path={routes.HOME} element={<Home />} />
 

@@ -62,7 +62,7 @@ const Cart = ({ cartItem, setCartItem }) => {
 
         <div>
           <Button
-            onClickAction={handleCheckout}
+            onClickAction={() => handleCheckout(setCartItem)}
             hoverScale='scale(1.25)'
             minWidth='150px'
             margin='0 10px 0 0'

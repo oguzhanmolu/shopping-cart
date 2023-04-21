@@ -17,9 +17,10 @@ export const handleHideCart = () => {
 };
 
 // Show text animation after checkout button is pressed, then restart page
-export const handleCheckout = () => {
+export const handleCheckout = (setCartItem) => {
   const text = document.querySelector('.Typewriter__Animation');
   text.style.display = 'block';
 
-  setInterval(() => window.location.reload(), 5000);
+  // Reset cart
+  setCartItem([]);
 };
